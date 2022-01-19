@@ -16,13 +16,13 @@ function App() {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		console.log(userInput);
-		console.log(data);
+		
 		// Any AJAX calls/HTTP REQUEST using axios/fetch will return a Promise => response
 		axios
 			.get(`https://images-api.nasa.gov/search?q=${userInput}`)
 			.then((response) => setData(response.data.collection.items))
 			.catch((err) => console.error(err));
+			console.log(data)
 	};
 	return (
 		<div className="App">
@@ -42,7 +42,7 @@ function App() {
 			</Segment>
 			<Segment id="nasa-container">
 				{data.map((item) => {
-					return <ResultsCard item={item} />;
+					return <ResultsCard key={item.data[0].nasa_id} item={item} />;
 				})}
 			</Segment>
 		</div>
