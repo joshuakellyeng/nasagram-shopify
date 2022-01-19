@@ -8,7 +8,8 @@ import './App.css';
 
 function App() {
 	const [userInput, setUserInput] = useState('');
-	const [data, setData] = useState([]);
+	const [data ,setData] = useState([])
+	
 
 	const handleChange = (e) => {
 		// console.log('handling change', e.target.value)
@@ -19,10 +20,9 @@ function App() {
 		e.preventDefault();
 		
 		// Any AJAX calls/HTTP REQUEST using axios/fetch will return a Promise => response
-		axios
-			.get(`https://images-api.nasa.gov/search?q=${userInput}`)
-			.then((response) => setData(response.data.collection.items))
-			.catch((err) => console.error(err));
+		fetch(`https://images-api.nasa.gov/search?q=${userInput}`)
+			.then((response) => response.json())
+			.then(data => setData(data.collection.items))
 	};
 	return (
 		<div className="App">
