@@ -1,6 +1,5 @@
 import React from 'react';
 import { useState } from 'react';
-import axios from 'axios';
 import NasagramHeader from './components/NasagramHeader';
 import ResultsCard from './components/ResultsCard';
 import { Segment, Input, Button } from 'semantic-ui-react';
