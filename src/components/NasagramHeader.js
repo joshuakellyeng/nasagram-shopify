@@ -8,7 +8,7 @@ const NasagramHeader = ({ author }) => {
 				NASAGRAM
 			</Header>
 			<Image src={'nasagram.png'} size={'medium'} centered />
-			<Header as="h3">Author: {author}</Header>
+			<Header as="h3">Author: <a href='https://github.com/joshuakellyeng'>{author}</a></Header>
 			<p>
 				Made with <a href="https://react.semantic-ui.com/">Semantic UI React</a>
 			</p>
