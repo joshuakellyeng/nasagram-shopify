@@ -13,7 +13,6 @@ function App() {
 	const handleChange = (e) => {
 		// console.log('handling change', e.target.value)
 		setUserInput(e.target.value);
-		console.log(e.target.value)
 	};
 
 	const handleSubmit = (e) => {
@@ -24,7 +23,6 @@ function App() {
 			.get(`https://images-api.nasa.gov/search?q=${userInput}`)
 			.then((response) => setData(response.data.collection.items))
 			.catch((err) => console.error(err));
-			console.log(data)
 	};
 	return (
 		<div className="App">
