@@ -4,7 +4,6 @@ import NasagramHeader from './components/NasagramHeader';
 import ResultsCard from './components/ResultsCard';
 import { Segment, Input, Button } from 'semantic-ui-react';
 import './App.css';
-import ResultCard from './components/ResultsCard';
 
 function App() {
 	const [userInput, setUserInput] = useState('');
