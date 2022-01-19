@@ -13,6 +13,7 @@ function App() {
 	const handleChange = (e) => {
 		// console.log('handling change', e.target.value)
 		setUserInput(e.target.value);
+		console.log(e.target.value)
 	};
 
 	const handleSubmit = (e) => {
