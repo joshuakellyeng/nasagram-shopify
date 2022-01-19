@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import NasagramHeader from './components/NasagramHeader';
 import ResultsCard from './components/ResultsCard';
@@ -36,14 +36,14 @@ function App() {
 					value={userInput}
 					onChange={handleChange}
 				/>
-        <Button primary onClick={handleSubmit}>Submit</Button>
+				<Button primary onClick={handleSubmit}>
+					Submit
+				</Button>
 			</Segment>
 			<Segment id="nasa-container">
-				{
-					data.map((item) => {
-						return <ResultsCard item={item} />
-					})
-				}
+				{data.map((item) => {
+					return <ResultsCard item={item} />;
+				})}
 			</Segment>
 		</div>
 	);

@@ -1,7 +1,7 @@
 import { useState } from 'react/cjs/react.development';
 import { Card, Image } from 'semantic-ui-react';
-import Heart from 'react-heart'
-import '../App.css'
+import Heart from 'react-heart';
+import '../App.css';
 
 const ResultsCard = (props) => {
 	const [active, setActive] = useState(false);
