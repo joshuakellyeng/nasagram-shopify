@@ -3,7 +3,7 @@ import { Card, Image } from 'semantic-ui-react';
 import Heart from 'react-heart'
 import '../App.css'
 
-const ResultCard = (props) => {
+const ResultsCard = (props) => {
 	const [active, setActive] = useState(false);
 
 	return (
@@ -29,4 +29,4 @@ const ResultCard = (props) => {
 	);
 };
 
-export default ResultCard;
+export default ResultsCard;

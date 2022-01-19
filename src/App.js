@@ -42,7 +42,7 @@ function App() {
 			<Segment id="nasa-container">
 				{
 					data.map((item) => {
-						return <ResultCard item={item} />
+						return <ResultsCard item={item} />
 					})
 				}
 			</Segment>
