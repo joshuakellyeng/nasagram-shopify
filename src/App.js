@@ -1,25 +1,53 @@
-import logo from './logo.svg';
+import { useState } from 'react';
+import axios from 'axios';
+import NasagramHeader from './components/NasagramHeader';
+import ResultsCard from './components/ResultsCard';
+import { Segment, Input, Button } from 'semantic-ui-react';
 import './App.css';
+import ResultCard from './components/ResultsCard';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const [userInput, setUserInput] = useState('');
+	const [data, setData] = useState([]);
+
+	const handleChange = (e) => {
+		// console.log('handling change', e.target.value)
+		setUserInput(e.target.value);
+	};
+
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		console.log(userInput);
+		console.log(data);
+		// Any AJAX calls/HTTP REQUEST using axios/fetch will return a Promise => response
+		axios
+			.get(`https://images-api.nasa.gov/search?q=${userInput}`)
+			.then((response) => setData(response.data.collection.items))
+			.catch((err) => console.error(err));
+	};
+	return (
+		<div className="App">
+			<div className="banner">
+				<NasagramHeader author={'Josh K.'} />
+			</div>
+			<Segment basic>
+				<Input
+					label={'Search'}
+					placeholder={'Reach For The Stars!'}
+					value={userInput}
+					onChange={handleChange}
+				/>
+        <Button primary onClick={handleSubmit}>Submit</Button>
+			</Segment>
+			<Segment id="nasa-container">
+				{
+					data.map((item) => {
+						return <ResultCard item={item} />
+					})
+				}
+			</Segment>
+		</div>
+	);
 }
 
 export default App;
