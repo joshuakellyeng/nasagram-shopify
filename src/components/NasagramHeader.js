@@ -1,3 +1,4 @@
+import React from 'react';
 import { Segment, Image, Header } from 'semantic-ui-react';
 
 const NasagramHeader = ({ author }) => {

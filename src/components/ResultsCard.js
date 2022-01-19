@@ -1,3 +1,4 @@
+import React from 'react';
 import { useState } from 'react/cjs/react.development';
 import { Card, Image } from 'semantic-ui-react';
 import Heart from 'react-heart';
@@ -21,9 +22,7 @@ const ResultsCard = (props) => {
 				</Card.Description>
 			</Card.Content>
 			<Card.Content extra>
-				<div className="heart">
-					<Heart isActive={active} onClick={() => setActive(!active)} />
-				</div>
+					<Heart className='heart' isActive={active} onClick={() => setActive(!active)} />
 			</Card.Content>
 		</Card>
 	);
